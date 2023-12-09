@@ -30,4 +30,5 @@ jobs:
 
       - name: Push Docker image to ECR
         run: |
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 446983553642.dkr.ecr.us-east-1.amazonaws.com
           docker push 446983553642.dkr.ecr.us-east-1.amazonaws.com/github-actions:latest
