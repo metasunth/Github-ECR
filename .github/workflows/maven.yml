@@ -3,10 +3,10 @@ name: Push to ECR
 on:
   push:
     branches:
-      - main  # Replace with your branch name
+      - main  
   pull_request:
     branches:
-      - main  # Replace with the branch name you want to trigger on
+      - main 
 
 jobs:
   build-and-push:
