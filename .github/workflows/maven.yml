@@ -17,16 +17,17 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
         with:
-          registry: ${{ secrets.AWS_ACCOUNT_ID}}.dkr.ecr.us-east-1.amazonaws.com 
+          registry: 446983553642.dkr.ecr.us-east-1.amazonaws.com/github-actions 
+         
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
       - name: Build the Docker image
         run: |
-          docker build -t sample-image .
-          docker tag sample-image:latest sample-image/my-ecr-repo:latest
+          docker build -t github-actions .
+          docker tag github-actions:latest 446983553642.dkr.ecr.us-east-1.amazonaws.com/github-actions:latest
 
       - name: Push Docker image to ECR
         run: |
-          docker push sample-image/my-ecr-repo:latest
+          docker push 446983553642.dkr.ecr.us-east-1.amazonaws.com/github-actions:latest
